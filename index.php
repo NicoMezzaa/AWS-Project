@@ -45,24 +45,11 @@
 <body>
     <div id="login-box">
         <h2>Login</h2>
-        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+        <form method="post" action="/includes/login.php">
             <input type="text" name="username" placeholder="Username" required>
             <input type="password" name="password" placeholder="Password" required>
             <button type="submit">Login</button>
         </form>
     </div>
-    <?php
-    // Verifica le credenziali e mostra un messaggio di benvenuto se l'autenticazione ha successo
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $username = "admin"; // Imposta l'username valido
-        $password = "password"; // Imposta la password valida
-
-        if ($_POST["username"] === $username && $_POST["password"] === $password) {
-            echo "<p>Benvenuto, $username!</p>";
-        } else {
-            echo "<p>Credenziali non valide. Riprova.</p>";
-        }
-    }
-    ?>
 </body>
 </html>
