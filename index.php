@@ -11,17 +11,9 @@
     <div id="login-box">
         <h2>Login</h2>
         <form method="post" action="/includes/login.php">
-            <div style="position: relative;">
-                <i class="fas fa-user icon"></i>
-                <input type="text" name="username" maxlength="30" placeholder="Username" required>
-            </div>
-            <div style="position: relative;">
-                <i class="fas fa-lock icon"></i>
-                <input type="password" name="password" minlength="8" maxlength="16" placeholder="Password" required>
-                <span class="password-icon"><i class="fas fa-eye"></i></span>
-            </div>
+            <input type="text" name="username" maxlength="30" placeholder="Username" required>
+            <input type="password" name="password" class="input-field" minlength="8" maxlength="16" placeholder="Password" required>
             <button type="submit">Login</button>
-            <div class="form-border"></div>
         </form>
     </div>
 </body>
