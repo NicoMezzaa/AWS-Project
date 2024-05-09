@@ -12,6 +12,11 @@ body {
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+}
+
+#login-box:hover {
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
 }
 
 h2 {
@@ -50,4 +55,5 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
     background-color: #4fa8db;
+    box-shadow: 0 0 10px rgba(97, 218, 251, 0.7);
 }
