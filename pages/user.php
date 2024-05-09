@@ -3,8 +3,7 @@
 session_start();
 
 // Include il file per la connessione al database
-require "connect/connect.php";
-?>
+include '../includes/connect.php';?>
 <!DOCTYPE html>
 <html lang="it">
 
