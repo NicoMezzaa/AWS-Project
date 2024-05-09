@@ -3,21 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AWS PROJECT</title>
+    <title>AWS WEBSITE</title>
     <link rel="stylesheet" href="/asset/css/style_user.css">
 </head>
 <body>
-    <header>
+<header>
         <div class="container">
-            <img src="../assets/img/aws_logo.png" alt="AWS Logo" class="logo">
-            <h1>AWS WEB SITE</h1>
+            <h1>AWS WEBSITE</h1>
             <?php
-            if (isset($_SESSION['email'])) {
-                echo '<p>Welcome, ' . $_SESSION['username'] . '</p>';
+            if (isset($_SESSION['username'])) {
+                echo '<p>Welcome, <span id="username">' . $_SESSION['username'] . '</span></p>';
             }
             ?>
         </div>
     </header>
+
+    <script>
+        function typeWriter(textElement, text, speed) {
+            let i = 0;
+            const interval = setInterval(() => {
+                textElement.innerHTML += text.charAt(i);
+                i++;
+                if (i > text.length) {
+                    clearInterval(interval);
+                }
+            }, speed);
+        }
+
+        const usernameElement = document.getElementById('username');
+        if (usernameElement) {
+            const usernameText = usernameElement.innerText;
+            usernameElement.innerText = '';
+            typeWriter(usernameElement, usernameText, 100); // Adjust the speed as needed
+        }
+    </script>
     <main>
         <div class="container">
             <section id="premises">
