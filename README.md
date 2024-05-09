@@ -11,7 +11,7 @@
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white)
 
-[![Badge License]][License] 
+[![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 <br>
 Welcome to AWS Setup with Docker for an Optimized Website! Follow these steps to configure an AWS environment using Docker and deploy your website.
