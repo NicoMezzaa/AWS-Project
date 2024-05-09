@@ -3,7 +3,6 @@ include 'connect.php';
 
 session_start();    // avvio della sessione
 
-// verifica se è stata data email e password attraverso il metodo POST
 if (!isset($_POST['username']) || !isset($_POST['password'])) {
     echo "vattene via";
 } else {
