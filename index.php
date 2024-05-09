@@ -51,7 +51,6 @@
             <button type="submit">Login</button>
         </form>
     </div>
-
     <?php
     // Verifica le credenziali e mostra un messaggio di benvenuto se l'autenticazione ha successo
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
