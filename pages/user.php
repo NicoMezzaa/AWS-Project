@@ -9,7 +9,7 @@
 <body>
     <header>
         <div class="container">
-            <img src="/assets/img/aws_logo.png" alt="AWS Logo" class="logo">
+            <img src="//assets//img//aws_logo.png" alt="AWS Logo" class="logo">
             <h1>AWS WEB SITE</h1>
             <?php
             if (isset($_SESSION['email'])) {
