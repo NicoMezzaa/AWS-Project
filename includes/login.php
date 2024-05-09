@@ -20,7 +20,8 @@ if (!isset($_POST['username']) || !isset($_POST['password'])) {
         $_SESSION['username'] = $username;
         header("Location: ../pages/user.php");
     } else {
-        echo "Credenziali errate. Login fallito!";
+        $_SESSION['error_message'] = "Credenziali errate. Login fallito!";
+        header("Location: ../index.php"); 
     }
     $conn->close();
 }
