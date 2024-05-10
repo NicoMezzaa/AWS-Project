@@ -62,6 +62,10 @@ a {
     transition: color 0.3s; 
 }
 
+a.dark-mode {
+    color: #794bc4; 
+}
+
 a:hover {
     text-decoration: underline;
 }
