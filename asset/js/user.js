@@ -11,7 +11,7 @@ function typeWriter(textElement, text, speed) {
 
 function getUsername() {
     const usernameElement = document.getElementById('username');
-    const username = "<?php echo $username; ?>";
+    const username = usernameElement.value;
     typeWriter(usernameElement, username, 180);
 }
 
