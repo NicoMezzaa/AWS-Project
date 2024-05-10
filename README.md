@@ -125,19 +125,108 @@ Start the nginx container via the 'docker-compose up -d' command, giving permiss
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- GETTING STARTED -->
-## Getting Started
+### Configure PHP 
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+1. Create PHP folder (the repo is saved here):
+   ```bash
+   mkdir ~/docker-project/php_code
+   ```
+2. Clone the repo:
+   ```sh
+   git clone https://github.com/NicoMezzaa/AWS-Project ~/docker-project/php_code/
+   ```
+3. Create a file called _Dockerfile_ in the php_code folder:
+    ```sh
+    FROM php:7.0-fpm
+    RUN docker-php-ext-install mysqli pdo pdo_mysql
+    RUN docker-php-ext-enable mysqli
+    ```
+4. Create a directory for Nginx inside your project directory:
+    ```sh
+    mkdir ~/docker-project/nginx
+    ```
+5. Create an Nginx default configuration file to run your PHP application
+    ```sh
+    sudo nano ~/docker-project/nginx/default.conf
+    ```
+6. Add the following Nginx configuration to the _default.conf_ file:
+    ```sh
+    server {  
 
-### Prerequisites
+     listen 80 default_server;  
+     root /var/www/html;  
+     index index.html index.php;  
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+     charset utf-8;  
+
+     location / {  
+      try_files $uri $uri/ /index.php?$query_string;  
+     }  
+
+     location = /favicon.ico { access_log off; log_not_found off; }  
+     location = /robots.txt { access_log off; log_not_found off; }  
+
+     access_log off;  
+     error_log /var/log/nginx/error.log error;  
+
+     sendfile off;  
+
+     client_max_body_size 100m;  
+
+     location ~ .php$ {  
+      fastcgi_split_path_info ^(.+.php)(/.+)$;  
+      fastcgi_pass php:9000;  
+      fastcgi_index index.php;  
+      include fastcgi_params;
+      fastcgi_read_timeout 300;
+      fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;  
+      fastcgi_intercept_errors off;  
+      fastcgi_buffer_size 16k;  
+      fastcgi_buffers 4 16k;  
+    }  
+
+     location ~ /.ht {  
+      deny all;  
+     }  
+    }
+    ```
+7. Create a Dockerfile inside the nginx directory to copy the Nginx default config file:
+    ```sh
+    nano ~/docker-project/nginx/Dockerfile
+    ```
+8. Add the following lines to the Dockerfile:
+    ```sh
+    FROM nginx
+    COPY ./default.conf /etc/nginx/conf.d/default.conf
+    ```
+9. Update the _docker-compose.yml_ file with the following contents:
+    ```sh
+    version: "3.9"
+    services:
+       nginx:
+         build: ./nginx/
+         ports:
+           - 80:80
+      
+         volumes:
+             - ./php_code/:/var/www/html/
+    
+       php:
+         build: ./php_code/
+         expose:
+           - 9000
+         volumes:
+            - ./php_code/:/var/www/html/
+    ```
+10. Then launch the containers:
+    ```sh
+    sudo docker-compose up -d
+    ```
+11. See the containers:
+    ```sh
+    sudo docker ps
+    ```
+![Containers](assets/img/containers.png)
 
 ### Installation
 
