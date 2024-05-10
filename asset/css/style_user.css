@@ -4,10 +4,6 @@ body {
     font-family: 'Jost', sans-serif;
     background-color: #f0f5ff;
     transition: background-color 0.5s;
-    display: flex; /* Utilizza flexbox */
-    justify-content: center; /* Centra orizzontalmente */
-    align-items: center; /* Centra verticalmente */
-    height: 100vh; 
 }
 
 body.dark-mode {
