@@ -78,8 +78,7 @@ input:focus {
 }
 
 form button {
-  width: calc(20% - 20px); /* Larghezza massima - spazio per i bordi */
-  margin: 0 10px; /* Margini uniformi */
+  width: 200px;
   border: none;
   background-color: #63c4ff;
   border-radius: 10px;
