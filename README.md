@@ -81,9 +81,27 @@ You can of course call it whatever you want.
 
 
 
-### Built With
+### Add nginx and ssl
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+After creating the folder, we create the docker-compose.yml file inside, which will be used to initially launch the nginx container.
+
+
+* Create the file
+  ```bash
+   nano docker-compose.yml
+   ```
+* Copy the code and put it in
+  ```bash
+   version: "3.9"
+   services:
+        nginx:
+          image: nginx:latest
+          container_name: nginx-container
+          ports:
+           - 80:80
+   ```
+  
+Start the nginx container via the ---bash'docker-compose up -d'--- command, giving permissions with sudo
 
 * [![Next][Next.js]][Next-url]
 * [![React][React.js]][React-url]
