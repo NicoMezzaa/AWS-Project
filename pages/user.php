@@ -14,6 +14,14 @@
     <p>Puoi trovare maggiori dettagli, <a href="https://github.com/NicoMezzaa/AWS-Project" id="github-link" target="_blank">Clicca qui</a>.</p>
 </div>
 
+<div class="theme-toggle">
+    <h2></h2>
+    <label class="switch">
+      <input type="checkbox" onclick="switchTheme()">
+      <span class="slider"></span>
+    </label>
+  </div>
+  
 <script>
     function getUsername() {
         const username = "<?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'Username'; ?>"; 
