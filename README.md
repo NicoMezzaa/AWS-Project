@@ -21,33 +21,23 @@
 <h4 align="center">Welcome to the AWS Setup with Docker for an Optimized Website! In this guide, you'll embark on a journey to configure a robust AWS environment using Docker, Nginx, PHP, and MariaDB. Follow these comprehensive steps to deploy your stunning website and harness the power of cloud infrastructure.</h4>
 
 </div>
+
 <!-- TABLE OF CONTENTS -->
 <details href="#index">
   <summary>Table of Contents</summary>
   <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#initial-configuration">Initial Configuration</a></li>
+    <li><a href="#add-nginx-and-ssl">Add Nginx and SSL</a></li>
+    <li><a href="#configure-php">Configure PHP</a></li>
+    <li><a href="#container">Container</a></li>
+    <li><a href="#last-step-configure-mariadb">Last Step: Configure MariaDB</a></li>
+    <li><a href="#how-to-update-the-repo-on-aws">How to Update the Repo on AWS</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
-<!-- ABOUT THE PROJECT -->
+<!-- START -->
 ## Initial configuration
 
 You need to install both docker and docker-compose.
@@ -80,7 +70,7 @@ You can of course call it whatever you want.
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
-
+<!-- NGINX SSL -->
 ## Add Nginx and SSL
 
 After creating the folder, we create the docker-compose.yml file inside, which will be used to initially launch the nginx container.
@@ -113,9 +103,11 @@ Start the nginx container via the `docker-compose up -d` command, giving permiss
    sudo docker run -d --name proxyapp --network docker-project_default -p 443:443 -e DOMAIN=*.compute-1.amazonaws.com -e TARGET_PORT=80 -e TARGET_HOST=docker 
    project-nginx-1 -e SSL_PORT=443 -v ~/ssl:/etc/nginx/certs --restart unless-stopped fsouza/docker-ssl-proxy
    ```
-
+  
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+
+<!-- PHP -->
 ### Configure PHP 
 
 1. Create PHP folder (the repo is saved here):
@@ -217,10 +209,17 @@ Start the nginx container via the `docker-compose up -d` command, giving permiss
     ```sh
     sudo docker ps
     ```
+<p align="right">(<a href="#top">back to top</a>)</p>
 
+
+<!-- CONTAINER -->
 ## Container
 ![Containers](asset/img/containers.png)
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+<!-- MARIADB -->
 ### Last step: configure MariaDB
 
 The last step now is to set up the container for the database
@@ -287,9 +286,10 @@ The last step now is to set up the container for the database
    ```sh
    CREATE TABLE example_table (column1 INT, column2 VARCHAR(50), column3 DATE);
    ```
-
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+
+<!-- GIT PULL -->
 ## How to update the repo on AWS
 
 1. Move to the folder where the repo is located:
@@ -309,6 +309,7 @@ Now, after setting everything up, check if it works and now you can focus on dev
  
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+
 <!-- LICENSE -->
 ## License
 
@@ -322,7 +323,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Nicolò Mezzanzanica - [@instagram](https://instagram.com/nicomezzaa) - nico.mezza7@gmail.com
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/NicoMezzaa/AWS-Project)
+Project Link: [https://github.com/NicoMezzaa/AWS-Project](https://github.com/NicoMezzaa/AWS-Project)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
