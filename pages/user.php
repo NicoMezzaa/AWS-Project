@@ -34,7 +34,29 @@
         typeWriter(usernameElement, username, 180);
     }
 
-    window.onload = getUsername;
+    function switchTheme() {
+        const body = document.body;
+        const loginBox = document.querySelector(".container");
+        const h1 = document.querySelector("h1");
+        const inputs = document.querySelectorAll("input");
+        const loginButton = document.getElementById("login-button");
+        const h2 = document.querySelector("h2");
+
+        body.classList.toggle("dark-mode");
+        loginBox.classList.toggle("dark-mode");
+        h1.classList.toggle("dark-mode");
+        inputs.forEach(input => {
+            input.classList.toggle("dark-mode");
+        });
+        loginButton.classList.toggle("dark-mode");
+        if (h2) { // Controllo se h2 esiste
+            h2.classList.toggle("dark-mode");
+        }
+    }
+
+    window.onload = function() {
+        getUsername();
+    };
 </script>
 
 </body>

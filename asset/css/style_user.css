@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@100;300;400;700&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #121212;
-    color: #ffffff;
+    font-family: 'Jost', sans-serif;
+    background-color: #f0f5ff;
+    transition: background-color 0.5s;
     margin: 0;
     padding: 0;
     display: flex;
@@ -10,20 +12,32 @@ body {
     height: 100vh;
 }
 
+body.dark-mode {
+    background-color: #121212;
+}
+
 .container {
     max-width: 800px;
     margin: 100px auto;
     text-align: center;
     padding: 20px;
     background-color: #333333;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(240, 238, 238, 0.1);
     border-radius: 10px;
+}
+
+.container.dark-mode {
+    background-color: #1a1a1a; /* Cambia il colore di sfondo del container in modalità scura */
 }
 
 h1 {
     font-size: 2.5em;
-    color: #ffffff;
+    color: #000000;
     margin-bottom: 20px;
+}
+
+h1.dark-mode {
+    color: #ffffff; /* Cambia il colore del testo dell'h1 in modalità scura */
 }
 
 #username::after {
@@ -41,6 +55,10 @@ p {
     font-size: 1.2em;
     color: #cccccc;
     margin-bottom: 20px;
+}
+
+p.dark-mode {
+    color: #999999; /* Cambia il colore del testo del paragrafo in modalità scura */
 }
 
 a {
