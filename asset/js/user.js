@@ -1,46 +1,46 @@
 function getUsername() {
-	const username = "<?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'Username'; ?>"; 
-	const usernameElement = document.getElementById('username');
+    const usernameElement = document.getElementById('username');
+    const username = usernameElement.textContent;
 
-	function typeWriter(textElement, text, speed) {
-		let i = 0;
-		const interval = setInterval(() => {
-			textElement.textContent += text.charAt(i);
-			i++;
-			if (i > text.length) {
-				clearInterval(interval);
-				textElement.style.animation = 'none';
-			}
-		}, speed);
-	}
+    function typeWriter(textElement, text, speed) {
+        let i = 0;
+        const interval = setInterval(() => {
+            textElement.textContent += text.charAt(i);
+            i++;
+            if (i > text.length) {
+                clearInterval(interval);
+                textElement.style.animation = 'none';
+            }
+        }, speed);
+    }
 
-	typeWriter(usernameElement, username, 180);
+    typeWriter(usernameElement, username, 180);
 }
 
 function switchTheme() {
-	const body = document.body;
-	const loginBox = document.querySelector(".container");
-	const h1 = document.querySelector("h1");
-	const inputs = document.querySelectorAll("input");
-	const loginButton = document.getElementById("login-button");
-	const h2 = document.querySelector("h2");
-	const p = document.querySelector("p");
-	const a = document.querySelector("a");
+    const body = document.body;
+    const loginBox = document.querySelector(".container");
+    const h1 = document.querySelector("h1");
+    const inputs = document.querySelectorAll("input");
+    const loginButton = document.getElementById("login-button");
+    const h2 = document.querySelector("h2");
+    const p = document.querySelector("p");
+    const a = document.querySelector("a");
 
-	body.classList.toggle("dark-mode");
-	p.classList.toggle("dark-mode");
-	a.classList.toggle("dark-mode");
-	loginBox.classList.toggle("dark-mode");
-	h1.classList.toggle("dark-mode");
-	inputs.forEach(input => {
-		input.classList.toggle("dark-mode");
-	});
-	loginButton.classList.toggle("dark-mode");
-	if (h2) { // Controllo se h2 esiste
-		h2.classList.toggle("dark-mode");
-	}
+    body.classList.toggle("dark-mode");
+    p.classList.toggle("dark-mode");
+    a.classList.toggle("dark-mode");
+    loginBox.classList.toggle("dark-mode");
+    h1.classList.toggle("dark-mode");
+    inputs.forEach(input => {
+        input.classList.toggle("dark-mode");
+    });
+    loginButton.classList.toggle("dark-mode");
+    if (h2) { // Controllo se h2 esiste
+        h2.classList.toggle("dark-mode");
+    }
 }
 
 window.onload = function() {
-	getUsername();
+    getUsername();
 };
