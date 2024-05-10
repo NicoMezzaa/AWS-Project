@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+header("Location: ../index.php"); 
 if (isset($_SESSION['error_message'])) {
     echo "<script>alert('Credenziali errate. Login fallito!');</script>";
     unset($_SESSION['error_message']); 
