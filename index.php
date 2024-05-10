@@ -17,13 +17,22 @@ if (isset($_SESSION['error_message'])) {
     <link rel="icon" href="../asset/img/aws_logo.png" type="image/x-icon">
 </head>
 <body>
-    <div id="login-box">
-        <h2>Login</h2>
+    <div class="login-box">
+        <h1>Login</h1>
         <form method="post" action="/includes/login.php">
-            <input type="text" name="username" maxlength="30" placeholder="Username" required>
-            <input type="password" name="password" minlength="8" maxlength="16" placeholder="Password" required>
-            <button type="submit">Login</button>
+            <input type="text" placeholder="Username" id="login-input">
+            <input type="password" placeholder="Password" id="login-input">
+            <button type="submit" id="login-button">Login</button>
         </form>
     </div>
+
+    <div class="theme-toggle">
+    <h2></h2>
+    <label class="switch">
+      <input type="checkbox" onclick="switchTheme()">
+      <span class="slider"></span>
+    </label>
+  </div>
+  <script src="/asset/js/login.js"></script>
 </body>
-</html>
+</html>  
