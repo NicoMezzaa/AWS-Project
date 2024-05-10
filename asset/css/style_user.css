@@ -21,7 +21,7 @@ body.dark-mode {
     margin: 100px auto;
     text-align: center;
     padding: 20px;
-    background-color: #333333;
+    background-color: #ffffff;
     box-shadow: 0 0 10px rgba(240, 238, 238, 0.1);
     border-radius: 10px;
 }
@@ -32,12 +32,12 @@ body.dark-mode {
 
 h1 {
     font-size: 2.5em;
-    color: #000000;
+    color: #070707;
     margin-bottom: 20px;
 }
 
 h1.dark-mode {
-    color: #ffffff; /* Cambia il colore del testo dell'h1 in modalità scura */
+    color: #ffffff; 
 }
 
 #username::after {
@@ -53,12 +53,12 @@ h1.dark-mode {
 
 p {
     font-size: 1.2em;
-    color: #cccccc;
+    color: #020202;
     margin-bottom: 20px;
 }
 
 p.dark-mode {
-    color: #999999; /* Cambia il colore del testo del paragrafo in modalità scura */
+    color: #ffffff; /* Cambia il colore del testo del paragrafo in modalità scura */
 }
 
 a {
