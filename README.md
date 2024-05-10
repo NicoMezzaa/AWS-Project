@@ -15,8 +15,8 @@
 
 [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-<br>
-Welcome to AWS Setup with Docker for an Optimized Website! Follow these steps to configure an AWS environment using Docker and deploy your website.
+<h1>Welcome to AWS Setup with Docker for an Optimized Website! Follow these steps to configure an AWS environment using Docker and deploy your website.
+</h1>
 
 </div>
 <!-- TABLE OF CONTENTS -->
