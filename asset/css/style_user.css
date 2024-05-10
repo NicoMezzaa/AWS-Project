@@ -5,12 +5,6 @@ body {
     font-family: 'Jost', sans-serif;
     background-color: #f0f5ff;
     transition: background-color 0.5s;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
 }
 
 body.dark-mode {
