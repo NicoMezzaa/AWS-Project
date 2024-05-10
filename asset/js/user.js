@@ -13,7 +13,6 @@ function getUsername() {
             }
         }, speed);
     }
-	alert(usernameElement, username);
     typeWriter(usernameElement, username, 180);
 }
 
