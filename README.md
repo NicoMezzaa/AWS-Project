@@ -17,225 +17,219 @@
 Welcome to AWS Setup with Docker for an Optimized Website! Follow these steps to configure an AWS environment using Docker and deploy your website.
 
 </div>
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+  </ol>
+</details>
 
-## Premises
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
-Before starting, make sure to install Docker and Docker Compose using the following commands:
+[![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-```bash
-sudo apt update
-sudo apt install -y docker.io
-sudo systemctl enable docker
+There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
 
-**Scaricare Docker Compose da GitHub:**
+Here's why:
+* Your time should be focused on creating something amazing. A project that solves a problem and helps others
+* You shouldn't be doing the same tasks over and over like creating a README from scratch
+* You should implement DRY principles to the rest of your life :smile:
 
-```bash
-sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" \
-    -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
+Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
 
-## Instructions
+Use the `BLANK_README.md` to get started.
 
-## Step 1
-1. **Creazione del file `docker-compose.yml` per avviare il container Nginx:**
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-```yaml
-version: "3.9"
-services:
-  nginx:
-    image: nginx:latest
-    container_name: nginx-container
-    ports:
-      - 80:80
 
-### Avvio dei container Docker in background
 
-Per avviare i container Docker in background, utilizza il seguente comando:
+### Built With
 
-```bash
-sudo docker-compose up -d
+This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
-## Step 2
+* [![Next][Next.js]][Next-url]
+* [![React][React.js]][React-url]
+* [![Vue][Vue.js]][Vue-url]
+* [![Angular][Angular.io]][Angular-url]
+* [![Svelte][Svelte.dev]][Svelte-url]
+* [![Laravel][Laravel.com]][Laravel-url]
+* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
+* [![JQuery][JQuery.com]][JQuery-url]
 
-### Creazione del Certificato SSL
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-Successivamente, crea il certificato SSL nella cartella `ssl` con i seguenti comandi:
 
-```bash
-mkdir ~/ssl
-sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ~/ssl/key.pem -out ~/ssl/cert.pem
 
-sudo docker run -d --name proxyapp --network docker-project_default -p 443:443 \
-    -e DOMAIN=*.compute-1.amazonaws.com -e TARGET_PORT=80 -e TARGET_HOST=docker-project-nginx-1 \
-    -e SSL_PORT=443 -v ~/ssl:/etc/nginx/certs --restart unless-stopped fsouza/docker-ssl-proxy
-	
+<!-- GETTING STARTED -->
+## Getting Started
 
-### Creazione della Cartella e Clonazione del Repository GitHub
+This is an example of how you may give instructions on setting up your project locally.
+To get a local copy up and running follow these simple example steps.
 
-Dopo aver configurato il certificato SSL, creiamo una cartella dedicata per il nostro codice PHP. Utilizziamo il seguente comando per creare la cartella:
+### Prerequisites
 
-```bash
-mkdir ~/docker-project/php_code
-cd ~/docker-project/php_code
-git clone https://NicoMezzaa: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@github.com/NicoMezzaa/AWS-Project.git ~/docker-project/php_code/
+This is an example of how to list things you need to use the software and how to install them.
+* npm
+  ```sh
+  npm install npm@latest -g
+  ```
 
+### Installation
 
-### Creazione del File Dockerfile per PHP
+_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
-Successivamente, creiamo un file chiamato `Dockerfile` nella cartella `php_code` dove inseriremo le istruzioni per configurare l'ambiente PHP. Ecco il contenuto del file:
+1. Get a free API Key at [https://example.com](https://example.com)
+2. Clone the repo
+   ```sh
+   git clone https://github.com/your_username_/Project-Name.git
+   ```
+3. Install NPM packages
+   ```sh
+   npm install
+   ```
+4. Enter your API in `config.js`
+   ```js
+   const API_KEY = 'ENTER YOUR API';
+   ```
 
-```Dockerfile
-FROM php:7.0-fpm
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-RUN docker-php-ext-install mysqli pdo pdo_mysql
-RUN docker-php-ext-enable mysqli
 
 
-### Creazione della Configurazione Nginx
+<!-- USAGE EXAMPLES -->
+## Usage
 
-All'interno della cartella `docker-project`, creiamo una cartella chiamata `nginx` dove aggiungeremo la configurazione per Nginx.
+Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
-Utilizziamo il seguente comando per creare e aprire il file `default.conf` utilizzando l'editor `nano`:
+_For more examples, please refer to the [Documentation](https://example.com)_
 
-```bash
-nano ~/docker-project/nginx/default.conf
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-server {  
-    listen 80 default_server;  
-    root /var/www/html;  
-    index index.html index.php;  
 
-    charset utf-8;  
 
-    location / {  
-        try_files $uri $uri/ /index.php?$query_string;  
-    }  
+<!-- ROADMAP -->
+## Roadmap
 
-    location = /favicon.ico { 
-        access_log off; 
-        log_not_found off; 
-    }  
+- [x] Add Changelog
+- [x] Add back to top links
+- [ ] Add Additional Templates w/ Examples
+- [ ] Add "components" document to easily copy & paste sections of the readme
+- [ ] Multi-language Support
+    - [ ] Chinese
+    - [ ] Spanish
 
-    location = /robots.txt { 
-        access_log off; 
-        log_not_found off; 
-    }  
+See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
 
-    access_log off;  
-    error_log /var/log/nginx/error.log error;  
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-    sendfile off;  
 
-    client_max_body_size 100m;  
 
-    location ~ .php$ {  
-        fastcgi_split_path_info ^(.+.php)(/.+)$;  
-        fastcgi_pass php:9000;  
-        fastcgi_index index.php;  
-        include fastcgi_params;
-        fastcgi_read_timeout 300;
-        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;  
-        fastcgi_intercept_errors off;  
-        fastcgi_buffer_size 16k;  
-        fastcgi_buffers 4 16k;  
-    }  
+<!-- CONTRIBUTING -->
+## Contributing
 
-    location ~ /.ht {  
-        deny all;  
-    }  
-}
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give the project a star! Thanks again!
 
-### Configurazione del Dockerfile per Nginx e Aggiornamento di docker-compose.yml
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-Successivamente, creiamo un altro file nella cartella `nginx` chiamato `Dockerfile`, dove aggiungiamo le regole per Nginx:
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-**Contenuto di `Dockerfile` per Nginx:**
 
-```Dockerfile
-FROM nginx
-COPY ./default.conf /etc/nginx/conf.d/default.conf
 
-**docker-compose.yml:**
-version: "3.9"
-services:
-  nginx:
-    build: ./nginx/
-    ports:
-      - 80:80
-    volumes:
-      - ./php_code/:/var/www/html/
+<!-- LICENSE -->
+## License
 
-  php:
-    build: ./php_code/
-    expose:
-      - 9000
-    volumes:
-      - ./php_code/:/var/www/html/
+Distributed under the MIT License. See `LICENSE.txt` for more information.
 
-### Configurazione del Container per MariaDB
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-L'ultimo passo consiste nell'impostare il container per il database MariaDB.
 
-1. **Modifica del file `docker-compose.yml` per MariaDB:**
 
-```yaml
-version: "3.9"
-services:
-  nginx:
-    build: ./nginx/
-    ports:
-      - 80:80
-    volumes:
-      - ./php_code/:/var/www/html/
+<!-- CONTACT -->
+## Contact
 
-  php:
-    build: ./php_code/
-    expose:
-      - 9000
-    volumes:
-      - ./php_code/:/var/www/html/
+Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
 
-  db:    
-    image: mariadb  
-    volumes: 
-      - mysql-data:/var/lib/mysql
-    environment:  
-      MYSQL_ROOT_PASSWORD: mariadb
-      MYSQL_DATABASE: ecomdb 
+Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
 
-volumes:
-  mysql-data:
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-### Creazione di una Sessione all'Interno del Container MariaDB
 
-Per riavviare tutti i contenitori e creare una sessione all'interno del container MariaDB, utilizza i seguenti comandi:
+<!-- ACKNOWLEDGMENTS -->
+## Acknowledgments
 
-```bash
-docker-compose up -d
-sudo docker exec -it docker-project-db-1 /bin/sh
+Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
 
+* [Choose an Open Source License](https://choosealicense.com)
+* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
+* [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
+* [Malven's Grid Cheatsheet](https://grid.malven.co/)
+* [Img Shields](https://shields.io)
+* [GitHub Pages](https://pages.github.com)
+* [Font Awesome](https://fontawesome.com)
+* [React Icons](https://react-icons.github.io/react-icons/search)
 
-### Configurazione del Database MariaDB
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-1. **Accedere come root al database MariaDB:**
 
-```bash
-mariadb -u root -pmariadb
 
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
+[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
+[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
+[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
+[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
+[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
+[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
+[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
+[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/othneildrew
+[product-screenshot]: images/screenshot.png
+[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
+[Next-url]: https://nextjs.org/
+[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[React-url]: https://reactjs.org/
+[Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
+[Vue-url]: https://vuejs.org/
+[Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
+[Angular-url]: https://angular.io/
+[Svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
+[Svelte-url]: https://svelte.dev/
+[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
+[Laravel-url]: https://laravel.com
+[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
+[Bootstrap-url]: https://getbootstrap.com
+[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
+[JQuery-url]: https://jquery.com 
 
-CREATE USER 'esempio'@'%' IDENTIFIED BY "esempio";
-
-
-GRANT ALL PRIVILEGES ON *.* TO 'esempio'@'%';
-FLUSH PRIVILEGES;
-
-
-CREATE DATABASE nomedb;
-
-
-USE nomedb;
-
-
-git pull
+  
