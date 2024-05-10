@@ -20,8 +20,8 @@ if (isset($_SESSION['error_message'])) {
     <div class="login-box">
         <h1>Login</h1>
         <form method="post" action="/includes/login.php">
-            <input type="text" placeholder="Username" maxlength="30" id="login-input" require>
-            <input type="password" placeholder="Password" minlength="8" maxlength="16" id="login-input" required>
+            <input type="text" placeholder="Username" maxlength="30" name="username" id="login-input" require>
+            <input type="password" placeholder="Password" minlength="8" maxlength="16" name="password" id="login-input" required>
             <button type="submit" id="login-button">Login</button>
         </form>
     </div>
