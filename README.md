@@ -81,7 +81,7 @@ You can of course call it whatever you want.
 
 
 
-### Add nginx and ssl
+## Add Nginx and SSL
 
 After creating the folder, we create the docker-compose.yml file inside, which will be used to initially launch the nginx container.
 
@@ -101,7 +101,7 @@ After creating the folder, we create the docker-compose.yml file inside, which w
            - 80:80
    ```
   
-Start the nginx container via the ---bash'docker-compose up -d'--- command, giving permissions with sudo
+Start the nginx container via the 'docker-compose up -d' command, giving permissions with sudo
 
 * [![Next][Next.js]][Next-url]
 * [![React][React.js]][React-url]
