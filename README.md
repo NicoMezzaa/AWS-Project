@@ -50,19 +50,19 @@
 <!-- ABOUT THE PROJECT -->
 ## Initial configuration
 
-you need to install both docker and docker-compose.
+You need to install both docker and docker-compose.
 
 Follow the following commands:
 
-1. install Docker Engine
+1. Install Docker Engine
    ```bash
    sudo apt install -y docker.io
    ```
-2. enable docker correctly
+2. Enable docker correctly
    ```bash
    sudo systemctl enable docker
    ```
-3. to install docker-compose (add the chmod command to grant execute permissions)
+3. Install docker-compose (add the chmod command to grant execute permissions)
    ```bash
    sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
    ```
