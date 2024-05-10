@@ -4,6 +4,10 @@ body {
     font-family: 'Jost', sans-serif;
     background-color: #f0f5ff;
     transition: background-color 0.5s;
+    display: flex; /* Utilizza flexbox */
+    justify-content: center; /* Centra orizzontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 100vh; 
 }
 
 body.dark-mode {
@@ -86,7 +90,7 @@ a:active {
     display: inline-block;
     width: 60px;
     height: 34px;
-    margin: 0 auto; /* Centra orizzontalmente */
+    margin-left: 48%;
 }
 
 .switch input {
@@ -119,10 +123,10 @@ a:active {
     transition: 0.5s;
 }
 
-.switch input:checked + .slider {
+.switch input:checked+.slider {
     background-color: #794bc4;
 }
 
-.switch input:checked + .slider:before {
+.switch input:checked+.slider:before {
     transform: translateX(26px);
 }
