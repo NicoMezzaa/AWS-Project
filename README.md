@@ -101,7 +101,7 @@ After creating the folder, we create the docker-compose.yml file inside, which w
            - 80:80
    ```
   
-Start the nginx container via the 'docker-compose up -d' command, giving permissions with sudo.
+Start the nginx container via the `docker-compose up -d` command, giving permissions with sudo.
 
 * Create the certificate in the ssl folder with the command:
   ```bash
@@ -113,15 +113,6 @@ Start the nginx container via the 'docker-compose up -d' command, giving permiss
    sudo docker run -d --name proxyapp --network docker-project_default -p 443:443 -e DOMAIN=*.compute-1.amazonaws.com -e TARGET_PORT=80 -e TARGET_HOST=docker 
    project-nginx-1 -e SSL_PORT=443 -v ~/ssl:/etc/nginx/certs --restart unless-stopped fsouza/docker-ssl-proxy
    ```
-  
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -227,79 +218,101 @@ Start the nginx container via the 'docker-compose up -d' command, giving permiss
     sudo docker ps
     ```
 
-## Containers
+## Container
 ![Containers](asset/img/containers.png)
 
-### Installation
+### Last step: configure MariaDB
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+The last step now is to set up the container for the database
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Update the _docker-compose.yml_ with this:
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+    version: "3.9"
+    services:
+       nginx:
+         build: ./nginx/
+         ports:
+           - 80:80
+      
+         volumes:
+             - ./php_code/:/var/www/html/
+    
+       php:
+         build: ./php_code/
+         expose:
+           - 9000
+         volumes:
+            - ./php_code/:/var/www/html/
+    
+    
+       db:    
+          image: mariadb  
+          volumes: 
+            -    mysql-data:/var/lib/mysql
+          environment:  
+           MYSQL_ROOT_PASSWORD: mariadb
+           MYSQL_DATABASE: AWS
+    
+    
+    volumes:
+        mysql-data:
    ```
-3. Install NPM packages
+2. Then launch the containers:
+    ```sh
+    sudo docker-compose up -d
+    ```
+3. Create the CLI inside MariaDB:
    ```sh
-   npm install
+   sudo docker exec -it docker-project-db-1 /bin/sh
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
+4. Access MariaDB as the root user:
+   ```sh
+   mariadb -u root -pmariadb
+   ```
+5. Create a user for the db:
+   ```sh
+   CREATE USER 'username'@'%' IDENTIFIED BY "password";
+   ```
+6. Grant him privileges:
+   ```sh
+   GRANT ALL PRIVILEGES ON . TO 'esempio'@'%';
+   FLUSH PRIVILEGES;
+   ```
+7. To create a new db first repeat steps 3 and 4, then:
+   ```sh
+   CREATE DATABASE site;
+   MariaDB [site]> 
+   ```
+8. You can now run SQL commands to create tables:
+   ```sh
+   CREATE TABLE example_table (column1 INT, column2 VARCHAR(50), column3 DATE);
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+## How to update the repo on AWS
 
-<!-- USAGE EXAMPLES -->
-## Usage
+1. Move to the folder where the repo is located:
+    ```sh
+    cd docker-project/php_code/
+    ```
+2. Do the _git pull_:
+    ```sh
+    git pull
+    ```
+Now, after setting everything up, check if it works and now you can focus on developing the site on AWS using the main development techniques:
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
+* [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+* [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+* [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+* [Bootstrap](https://getbootstrap.com/)
+ 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+Distributed under the MIT License. See `LICENSE` for more information.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -307,9 +320,9 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Nicolò Mezzanzanica - [@instagram](https://instagram.com/nicomezzaa) - nico.mezza7@gmail.com
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Project Link: [https://github.com/NicoMezzaa/AWS-Project]([https://github.com/your_username/repo_name](https://github.com/NicoMezzaa/AWS-Project))
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
