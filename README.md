@@ -101,8 +101,19 @@ After creating the folder, we create the docker-compose.yml file inside, which w
            - 80:80
    ```
   
-Start the nginx container via the 'docker-compose up -d' command, giving permissions with sudo
+Start the nginx container via the 'docker-compose up -d' command, giving permissions with sudo.
 
+* Create the certificate in the ssl folder with the command:
+  ```bash
+   mkdir ~/ssl 
+   sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ~/ssl/key.pem -out ~/ssl/cert.pem
+   ```
+* To connect it to the nginx container:
+  ```bash
+   sudo docker run -d --name proxyapp --network docker-project_default -p 443:443 -e DOMAIN=*.compute-1.amazonaws.com -e TARGET_PORT=80 -e TARGET_HOST=docker 
+   project-nginx-1 -e SSL_PORT=443 -v ~/ssl:/etc/nginx/certs --restart unless-stopped fsouza/docker-ssl-proxy
+   ```
+  
 * [![Next][Next.js]][Next-url]
 * [![React][React.js]][React-url]
 * [![Vue][Vue.js]][Vue-url]
@@ -113,7 +124,6 @@ Start the nginx container via the 'docker-compose up -d' command, giving permiss
 * [![JQuery][JQuery.com]][JQuery-url]
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
 
 <!-- GETTING STARTED -->
 ## Getting Started
