@@ -1,20 +1,23 @@
+function typeWriter(textElement, text, speed) {
+    let i = 0;
+    const interval = setInterval(() => {
+        textElement.textContent += text.charAt(i);
+        i++;
+        if (i >= text.length) {
+            clearInterval(interval);
+        }
+    }, speed);
+}
+
 function getUsername() {
     const usernameElement = document.getElementById('username');
-    const username = usernameElement.textContent;
-
-    function typeWriter(textElement, text, speed) {
-        let i = 0;
-        const interval = setInterval(() => {
-            textElement.textContent += text.charAt(i);
-            i++;
-            if (i > text.length) {
-                clearInterval(interval);
-                textElement.style.animation = 'none';
-            }
-        }, speed);
-    }
+    const username = "<?php echo $username; ?>";
     typeWriter(usernameElement, username, 180);
 }
+
+window.onload = function() {
+    getUsername();
+};
 
 function switchTheme() {
     const body = document.body;
