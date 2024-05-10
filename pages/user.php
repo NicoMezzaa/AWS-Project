@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="container">
-    <h1 style="font-size: 2.5em; color: #ffffff; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Bentornato, <span id="username"></span></h1>
+    <h1>Bentornato, <span id="username"></span></h1>
     <p>Benvenuto nel sito realizzato su AWS.</p>
     <p>Puoi trovare maggiori dettagli, <a href="https://github.com/NicoMezzaa/AWS-Project" id="github-link" target="_blank">Clicca qui</a>.</p>
 </div>
@@ -21,7 +21,7 @@
       <span class="slider"></span>
     </label>
   </div>
-  
+
 <script>
     function getUsername() {
         const username = "<?php echo isset($_SESSION['username']) ? $_SESSION['username'] : 'Username'; ?>"; 
