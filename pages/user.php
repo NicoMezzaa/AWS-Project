@@ -11,7 +11,7 @@
 <div class="container">
     <h1 style="font-size: 2.5em; color: #ffffff; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Bentornato, <span id="username"></span></h1>
     <p>Benvenuto nel sito realizzato su AWS.</p>
-    <p>Puoi trovare maggiori dettagli, <a href="https://github.com/NicoMezzaa/AWS-Project/edit/main/README.md" id="github-link" target="_blank">Clicca qui</a>.</p>
+    <p>Puoi trovare maggiori dettagli, <a href="https://github.com/NicoMezzaa/AWS-Project/edit/main" target="_blank">Clicca qui</a>.</p>
 </div>
 
 <script>
@@ -34,14 +34,7 @@
         typeWriter(usernameElement, username, 180);
     }
 
-    document.getElementById("github-link").addEventListener("click", function(event) {
-        event.preventDefault(); // Previene il comportamento predefinito del link
-        window.open(this.getAttribute("href"), "_blank"); // Apre l'URL in una nuova finestra del browser
-    });
-
-    window.onload = function() {
-        getUsername();
-    };
+    window.onload = getUsername;
 </script>
 
 </body>
