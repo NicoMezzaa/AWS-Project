@@ -3,7 +3,9 @@
 body {
   font-family: 'Jost', sans-serif;
   background-color: #f0f5ff;
-  transition: 0.5s;
+  transition: background-color 0.5s;
+  margin: 0;
+  padding: 0;
 }
 
 body.dark-mode {
@@ -19,7 +21,7 @@ body.dark-mode {
   padding-top: 10px;
   padding-bottom: 30px;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, .1);
-  transition: 0.5s;
+  transition: width 0.5s, margin-top 0.5s;
 }
 
 @media only screen and (max-width: 768px) {
@@ -41,7 +43,7 @@ body.dark-mode {
 .login-box h1 {
   text-align: center;
   color: #232c3d;
-  transition: 0.5s;
+  transition: color 0.5s;
 }
 
 .login-box h1.dark-mode {
@@ -56,14 +58,14 @@ form {
 }
 
 input {
-  width: 80%;
-  margin-bottom: 20px;
+  width: calc(100% - 20px); /* Larghezza massima - spazio per i bordi */
+  margin: 0 10px 20px; /* Margini uniformi */
   border: none;
   background-color: #f0f5ff;
   border-radius: 10px;
   padding: 10px;
   font-size: 14px;
-  transition: 0.5s;
+  transition: background-color 0.5s;
 }
 
 input.dark-mode {
@@ -76,7 +78,8 @@ input:focus {
 }
 
 form button {
-  width: 20%;
+  width: calc(20% - 20px); /* Larghezza massima - spazio per i bordi */
+  margin: 0 10px; /* Margini uniformi */
   border: none;
   background-color: #63c4ff;
   border-radius: 10px;
@@ -84,7 +87,7 @@ form button {
   font-size: 16px;
   font-weight: bold;
   color: white;
-  transition: 0.5s;
+  transition: background-color 0.5s;
 }
 
 form button.dark-mode {
@@ -107,7 +110,7 @@ form button:focus {
 h2 {
   text-align: center;
   color: #232c3d;
-  transition: 0.5s;
+  transition: color 0.5s;
 }
 
 h2::before {
