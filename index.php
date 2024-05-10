@@ -1,11 +1,6 @@
 <?php
 session_start();
 
-header("Location: ../index.php"); 
-if (isset($_SESSION['error_message'])) {
-    echo "<script>alert('Credenziali errate. Login fallito!');</script>";
-    unset($_SESSION['error_message']); 
-}
 ?>
 
 <!DOCTYPE html>
@@ -18,6 +13,13 @@ if (isset($_SESSION['error_message'])) {
     <link rel="icon" href="../asset/img/aws_logo.png" type="image/x-icon">
 </head>
 <body>
+    <?php
+
+    if (isset($_SESSION['error_message'])) {
+        echo "<script>alert('Credenziali errate. Login fallito!');</script>";
+        unset($_SESSION['error_message']); 
+    }
+    ?>
     <div class="login-box">
         <h1>Login</h1>
         <form method="post" action="/includes/login.php">
