@@ -59,7 +59,7 @@ Of course, no one template will serve all projects since your needs may be diffe
 
 Use the `BLANK_README.md` to get started.
 
-<p align="right">(<a href="# AWS Setup with Docker for an Optimized Website">back to top</a>)</p>
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
