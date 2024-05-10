@@ -226,6 +226,8 @@ Start the nginx container via the 'docker-compose up -d' command, giving permiss
     ```sh
     sudo docker ps
     ```
+
+## Containers
 ![Containers](asset/img/containers.png)
 
 ### Installation
