@@ -1,3 +1,4 @@
+/* CSS aggiornato con la modalità scura per i paragrafi */
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@100;300;400;700&display=swap');
 
 body {
@@ -81,15 +82,15 @@ a:active {
     width: 60px;
     height: 34px;
     margin-left: 48%;
-  }
-  
-  .switch input {
+}
+
+.switch input {
     opacity: 0;
     width: 0;
     height: 0;
-  }
-  
-  .slider {
+}
+
+.slider {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -99,9 +100,9 @@ a:active {
     background-color: #ccc;
     border-radius: 34px;
     transition: 0.5s;
-  }
-  
-  .slider::before {
+}
+
+.slider::before {
     position: absolute;
     content: "";
     height: 26px;
@@ -111,4 +112,4 @@ a:active {
     background-color: white;
     border-radius: 50%;
     transition: 0.5s;
-  }  
+}
