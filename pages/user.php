@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -10,7 +14,7 @@
 <div class="container">
     <h1>Bentornato, <?php echo $_SESSION['username']; ?></h1>
     <p>Benvenuto nel sito realizzato su AWS.</p>
-    <p>Puoi trovare maggiori dettagli nel <a href="https://raw.githubusercontent.com/NicoMezzaa/AWS-Project/main/README.md" target="_blank">README</a>.</p>
+    <p>Puoi trovare maggiori dettagli nel <a href="https://github.com/NicoMezzaa/AWS-Project/edit/main/README.md" target="_blank">README</a>.</p>
 </div>
 
 </body>
