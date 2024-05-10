@@ -48,7 +48,7 @@
         }
 
         // Chiama la funzione per simulare la digitazione
-        typeWriter(usernameElement, username, 100);
+        typeWriter(usernameElement, username, 1000);
     }
 
     // Chiama la funzione per ottenere lo username quando la pagina è completamente caricata
