@@ -11,7 +11,7 @@ function typeWriter(textElement, text, speed) {
 
 function getUsername() {
     const usernameElement = document.getElementById('username');
-    const username = usernameElement.value;
+    const username = usernameElement.getAttribute('data-username');
     typeWriter(usernameElement, username, 180);
 }
 
