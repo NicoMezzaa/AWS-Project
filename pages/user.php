@@ -49,8 +49,10 @@
         const inputs = document.querySelectorAll("input");
         const loginButton = document.getElementById("login-button");
         const h2 = document.querySelector("h2");
+        const p = document.querySelector("p");
 
         body.classList.toggle("dark-mode");
+        p.classList.toggle("dark-mode");
         loginBox.classList.toggle("dark-mode");
         h1.classList.toggle("dark-mode");
         inputs.forEach(input => {
