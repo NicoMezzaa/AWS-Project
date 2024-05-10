@@ -10,8 +10,8 @@
 <body>
 <div class="container">
     <h1>Bentornato, <span id="username"></span></h1>
-    <p>Benvenuto nel sito realizzato su AWS.</p>
-    <p>Puoi trovare maggiori dettagli, <a href="https://github.com/NicoMezzaa/AWS-Project" id="github-link" target="_blank">Clicca qui</a>.</p>
+    <p>Benvenuto nel sito realizzato su AWS.
+       Puoi trovare maggiori dettagli, <a href="https://github.com/NicoMezzaa/AWS-Project" id="github-link" target="_blank">Clicca qui</a>.</p>
 </div>
 
 <div class="theme-toggle">
