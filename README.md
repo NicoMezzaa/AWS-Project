@@ -4,7 +4,7 @@
     <img width="300" alt="AWS Logo" src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg">
 </p>
 
-# AWS Setup with Docker for an Optimized Website
+<h1 align="center"># AWS Setup with Docker for an Optimized Website</h1>
 
 <div align="center">
 
@@ -15,8 +15,7 @@
 
 [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-<h4>Welcome to AWS Setup with Docker for an Optimized Website! Follow these steps to configure an AWS environment using Docker, Nginx, Php & MariaDB and deploy your beautiful website.
-</h4>
+<h4 align="center">Welcome to the AWS Setup with Docker for an Optimized Website! In this guide, you'll embark on a journey to configure a robust AWS environment using Docker, Nginx, PHP, and MariaDB. Follow these comprehensive steps to deploy your stunning website and harness the power of cloud infrastructure.</h4>
 
 </div>
 <!-- TABLE OF CONTENTS -->
