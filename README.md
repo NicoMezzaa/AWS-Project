@@ -67,10 +67,15 @@ Follow the following commands:
    sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
    ```
 
-   
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
+Then create the project folder:
+* ```bash
+   mkdir ~/docker-project
+   ```
+* ```bash
+   cd ~/docker-project
+   ```
 
-Use the `BLANK_README.md` to get started.
+You can of course call it whatever you want.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
