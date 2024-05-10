@@ -86,7 +86,14 @@ a:active {
     display: inline-block;
     width: 60px;
     height: 34px;
-    margin-left: 48%;
+    margin: 0 auto; /* Centra orizzontalmente */
+}
+
+/* Rimuovi il margine sinistro per l'allineamento quando si sposta */
+@media only screen and (max-width: 768px) {
+    .switch {
+        margin-left: 0;
+    }
 }
 
 .switch input {
@@ -119,10 +126,10 @@ a:active {
     transition: 0.5s;
 }
 
-.switch input:checked+.slider {
+.switch input:checked + .slider {
     background-color: #794bc4;
 }
 
-.switch input:checked+.slider:before {
+.switch input:checked + .slider:before {
     transform: translateX(26px);
 }
