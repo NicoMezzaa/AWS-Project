@@ -16,7 +16,7 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Username';
 
 <body>
     <div class="container">
-        <h1>Bentornato, <span id="username"><?php echo $username; ?></span></h1>
+        <h1>Bentornato, <span id="username"></span></h1>
         <p>Benvenuto nel sito realizzato su AWS.
             Puoi trovare maggiori dettagli, <a href="https://github.com/NicoMezzaa/AWS-Project" id="github-link" target="_blank">Clicca qui</a>.</p>
     </div>
