@@ -209,6 +209,7 @@ Start the nginx container via the `docker-compose up -d` command, giving permiss
     ```sh
     sudo docker ps
     ```
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
@@ -286,6 +287,7 @@ The last step now is to set up the container for the database
    ```sh
    CREATE TABLE example_table (column1 INT, column2 VARCHAR(50), column3 DATE);
    ```
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
