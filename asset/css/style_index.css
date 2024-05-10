@@ -2,6 +2,7 @@
 
 body {
   font-family: 'Jost', sans-serif;
+  height: 100v;
   background-color: #f0f5ff;
   transition: 0.5s;
 }
