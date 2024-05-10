@@ -26,13 +26,15 @@ body.dark-mode {
 
 @media only screen and (max-width: 768px) {
     .login-box {
-        width: 75%;
+        width: 80%;
+        margin-top: 30px; 
+        padding: 20px; 
     }
 }
 
 @media only screen and (max-width: 1366px) {
     .login-box {
-        width: 40%;
+        width: 50%; 
     }
 }
 
