@@ -322,7 +322,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Nicolò Mezzanzanica - [@instagram](https://instagram.com/nicomezzaa) - nico.mezza7@gmail.com
 
-Project Link: [https://github.com/NicoMezzaa/AWS-Project]([https://github.com/your_username/repo_name](https://github.com/NicoMezzaa/AWS-Project))
+Project Link: [https://github.com/your_username/repo_name](https://github.com/NicoMezzaa/AWS-Project)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
