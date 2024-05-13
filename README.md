@@ -275,7 +275,7 @@ The last step now is to set up the container for the database
    ```
 6. Grant him privileges:
    ```sh
-   GRANT ALL PRIVILEGES ON . TO 'esempio'@'%';
+   GRANT ALL PRIVILEGES ON *.* TO 'esempio'@'%';
    FLUSH PRIVILEGES;
    ```
 7. To create a new db first repeat steps 3 and 4, then:
