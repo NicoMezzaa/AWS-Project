@@ -15,7 +15,7 @@ function getUsername() {
     typeWriter(usernameElement, username, 180);
 }
 
-window.onload = function() {
+window.onload = function () {
     getUsername();
 };
 

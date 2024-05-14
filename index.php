@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/asset/css/style_index.css">
     <link rel="icon" href="/asset/img/aws_logo.png" type="image/x-icon">
     <style>
-        
+
     </style>
 </head>
 
@@ -18,7 +18,7 @@
 
     <script>
         setTimeout(function() {
-            window.location.href = 'nuova_pagina.php';
+            window.location.href = '/pages/login.php';
         }, 5000);
     </script>
 </body>
