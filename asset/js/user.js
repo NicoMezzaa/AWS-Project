@@ -24,7 +24,6 @@ function switchTheme() {
     const loginBox = document.querySelector(".container");
     const h1 = document.querySelector("h1");
     const inputs = document.querySelectorAll("input");
-    const loginButton = document.getElementById("login-button");
     const h2 = document.querySelector("h2");
     const p = document.querySelector("p");
     const a = document.querySelector("a");
@@ -37,7 +36,6 @@ function switchTheme() {
     inputs.forEach(input => {
         input.classList.toggle("dark-mode");
     });
-    loginButton.classList.toggle("dark-mode");
     if (h2) { // Controllo se h2 esiste
         h2.classList.toggle("dark-mode");
     }
