@@ -44,15 +44,19 @@ You need to install both docker and docker-compose.
 
 Follow the following commands:
 
-1. Install Docker Engine
+1. Update your package index:
+   ```bash
+   sudo apt update
+   ```
+2. Install Docker Engine
    ```bash
    sudo apt install -y docker.io
    ```
-2. Enable docker correctly
+3. Enable docker correctly
    ```bash
    sudo systemctl enable docker
    ```
-3. Install docker-compose (add the chmod command to grant execute permissions)
+4. Install docker-compose (add the chmod command to grant execute permissions)
    ```bash
    sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
    ```
@@ -78,7 +82,7 @@ After creating the folder, we create the docker-compose.yml file inside, which w
 
 * Create the file
   ```bash
-   nano docker-compose.yml
+   sudo nano docker-compose.yml
    ```
 * Copy the code and put it in
   ```bash
@@ -96,12 +100,14 @@ Start the nginx container via the `docker-compose up -d` command, giving permiss
 * Create the certificate in the ssl folder with the command:
   ```bash
    mkdir ~/ssl 
+   ```
+* Generate self-signed SSL certificate and key (you will be asked some information for the certificate):
+  ```bash
    sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ~/ssl/key.pem -out ~/ssl/cert.pem
    ```
 * To connect it to the nginx container:
   ```bash
-   sudo docker run -d --name proxyapp --network docker-project_default -p 443:443 -e DOMAIN=*.compute-1.amazonaws.com -e TARGET_PORT=80 -e TARGET_HOST=docker 
-   project-nginx-1 -e SSL_PORT=443 -v ~/ssl:/etc/nginx/certs --restart unless-stopped fsouza/docker-ssl-proxy
+   sudo docker run -d --name proxyapp --network docker-project_default -p 443:443 -e DOMAIN=*.compute-1.amazonaws.com -e TARGET_PORT=80 -e TARGET_HOST=docker-project-nginx-1 -e SSL_PORT=443 -v ~/ssl:/etc/nginx/certs --restart unless-stopped fsouza/docker-ssl-proxy
    ```
   
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -275,7 +281,7 @@ The last step now is to set up the container for the database
    ```
 6. Grant him privileges:
    ```sh
-   GRANT ALL PRIVILEGES ON . TO 'esempio'@'%';
+   GRANT ALL PRIVILEGES ON *.* TO 'esempio'@'%';
    FLUSH PRIVILEGES;
    ```
 7. To create a new db first repeat steps 3 and 4, then:
