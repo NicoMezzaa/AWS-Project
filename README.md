@@ -100,6 +100,9 @@ Start the nginx container via the `docker-compose up -d` command, giving permiss
 * Create the certificate in the ssl folder with the command:
   ```bash
    mkdir ~/ssl 
+   ```
+* Generate self-signed SSL certificate and key (you will be asked some information for the certificate):
+  ```bash
    sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ~/ssl/key.pem -out ~/ssl/cert.pem
    ```
 * To connect it to the nginx container:
