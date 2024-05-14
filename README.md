@@ -82,7 +82,7 @@ After creating the folder, we create the docker-compose.yml file inside, which w
 
 * Create the file
   ```bash
-   nano docker-compose.yml
+   sudo nano docker-compose.yml
    ```
 * Copy the code and put it in
   ```bash
