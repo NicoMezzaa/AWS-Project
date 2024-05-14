@@ -16,8 +16,6 @@
 
     <img src="/asset/img/aws_logo.png" class="center-image" alt="Immagine di benvenuto">
 
-    <p class="aws-text">AWS Website</p>
-
     <script>
         setTimeout(function() {
             window.location.href = 'nuova_pagina.php';
