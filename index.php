@@ -19,7 +19,7 @@
     <script>
         setTimeout(function() {
             window.location.href = '/pages/login.php';
-        }, 5000);
+        }, 8000);
     </script>
 </body>
 
