@@ -42,7 +42,3 @@ function switchTheme() {
         h2.classList.toggle("dark-mode");
     }
 }
-
-window.onload = function() {
-    getUsername();
-};
