@@ -25,7 +25,7 @@ session_start();
 	<div class="login-box">
 		<h1>Login</h1>
 		<form method="post" action="../includes/login.php">
-			<input type="text" placeholder="Username" maxlength="30" name="username" id="login-input1" require>
+			<input type="text" placeholder="Username" maxlength="30" name="username" id="login-input1" required>
 			<input type="password" placeholder="Password" minlength="8" maxlength="16" name="password" id="login-input2" required>
 			<button type="submit" id="login-button">Login</button>
 		</form>
