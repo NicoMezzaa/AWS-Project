@@ -21,7 +21,7 @@ if (!isset($_POST['username']) || !isset($_POST['password'])) {
         header("Location: ../pages/user.php");
     } else {
         $_SESSION['error_message'] = "Credenziali errate. Login fallito!";
-        header("Location: ../index.php");
+        header("Location: ../pages/login.php");
     }
     $conn->close();
 }
