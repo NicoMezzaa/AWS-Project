@@ -48,19 +48,19 @@ Follow the following commands:
    ```bash
    sudo apt update
    ```
-2. Install Docker Engine
+2. Install Docker Engine:
    ```bash
    sudo apt install -y docker.io
    ```
-3. Enable docker correctly
+3. Enable docker correctly:
    ```bash
    sudo systemctl enable docker
    ```
-4. Install docker-compose 
+4. Install docker-compose:
    ```bash
    sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
    ```
-5. Add the chmod command to grant execute permissions
+5. Add the chmod command to grant execute permissions:
    ```bash
    sudo chmod +x /usr/local/bin/docker-compose
    ```
