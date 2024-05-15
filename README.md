@@ -40,7 +40,7 @@
 <!-- START -->
 ## Initial configuration
 
-You need to install both docker and docker-compose.
+You need to install both _**docker**_ and _**docker-compose**_.
 
 Follow the following commands:
 
