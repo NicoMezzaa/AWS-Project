@@ -48,19 +48,19 @@ Follow the following commands:
    ```bash
    sudo apt update
    ```
-2. Install Docker Engine
+2. Install Docker Engine:
    ```bash
    sudo apt install -y docker.io
    ```
-3. Enable docker correctly
+3. Enable docker correctly:
    ```bash
    sudo systemctl enable docker
    ```
-4. Install docker-compose 
+4. Install docker-compose:
    ```bash
    sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
    ```
-5. Add the chmod command to grant execute permissions
+5. Add the chmod command to grant execute permissions:
    ```bash
    sudo chmod +x /usr/local/bin/docker-compose
    ```
@@ -225,7 +225,7 @@ Start the nginx container via the `docker-compose up -d` command, giving permiss
 
 <!-- CONTAINER -->
 ## Container
-![Containers](asset/img/project_containers.png)
+![Containers](asset/img/containers.png)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -281,22 +281,32 @@ The last step now is to set up the container for the database
    ```
 5. Create a user for the db:
    ```sh
-   CREATE USER 'username'@'%' IDENTIFIED BY "password";
+   CREATE USER 'nicolo'@'%' IDENTIFIED BY "mezza";
    ```
 6. Grant him privileges:
    ```sh
-   GRANT ALL PRIVILEGES ON *.* TO 'esempio'@'%';
+   GRANT ALL PRIVILEGES ON *.* TO 'nicolo'@'%';
+   ```
+7. Reload the privilege tables in the active memory:
+   ```sh
    FLUSH PRIVILEGES;
    ```
-7. To create a new db first repeat steps 3 and 4, then:
+8. To create a new db first repeat steps 3 and 4, then:
    ```sh
    CREATE DATABASE site;
-   MariaDB [site]> 
    ```
-8. You can now run SQL commands to create tables:
+9. Use database _site_:
    ```sh
-   CREATE TABLE example_table (column1 INT, column2 VARCHAR(50), column3 DATE);
+   USE site;
    ```
+10. Result:
+    ```sh
+    MariaDB [site]>
+    ```
+11. Run SQL commands:
+    ```sh
+    CREATE TABLE users (username VARCHAR(30) NOT NULL, password VARCHAR(32) NOT NULL);
+    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
