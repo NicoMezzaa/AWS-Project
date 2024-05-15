@@ -56,9 +56,13 @@ Follow the following commands:
    ```bash
    sudo systemctl enable docker
    ```
-4. Install docker-compose (add the chmod command to grant execute permissions)
+4. Install docker-compose 
    ```bash
    sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+   ```
+5. Add the chmod command to grant execute permissions
+   ```bash
+   sudo chmod +x /usr/local/bin/docker-compose
    ```
 
 Then create the project folder:
@@ -181,7 +185,7 @@ Start the nginx container via the `docker-compose up -d` command, giving permiss
     ```
 7. Create a Dockerfile inside the nginx directory to copy the Nginx default config file:
     ```sh
-    nano ~/docker-project/nginx/Dockerfile
+    sudo nano ~/docker-project/nginx/Dockerfile
     ```
 8. Add the following lines to the Dockerfile:
     ```sh
