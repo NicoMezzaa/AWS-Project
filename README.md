@@ -355,9 +355,7 @@ The last step now is to set up the container for the database.
    
 - Do the `git pull`:
     ```
-    git status
-    git add
-    git commit
+    git pull
     ```
 Now, after setting everything up, check if it works and now you can focus on developing the site on AWS using the main development techniques:
 
@@ -381,6 +379,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## Contact
 
 Nicolò Mezzanzanica - [<img src="https://img.icons8.com/fluency/48/000000/instagram-new.png" alt="Instagram" width="20"/>](https://instagram.com/nicomezzaa) - nico.mezza7@gmail.com
+
 Project Link (GitHub):    [<img src="https://img.icons8.com/fluency/48/000000/github.png" alt="GitHub" width="20"/>](https://github.com/NicoMezzaa/AWS-Project)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
