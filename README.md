@@ -299,14 +299,14 @@ The last step now is to set up the container for the database
    ```sh
    USE site;
    ```
-10. Then launch the containers:
-    ```sh
-    sudo docker-compose up -d
-    ```
-11. See the containers:
-    ```sh
-    sudo docker ps
-    ```
+10. You should now have this:
+   ```sh
+   MariaDB [site]> 
+   ```
+11. You can now run SQL commands:
+   ```sh
+   CREATE TABLE users (username VARCHAR(30) NOT NULL, password VARCHAR(32) NOT NULL);
+   ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
