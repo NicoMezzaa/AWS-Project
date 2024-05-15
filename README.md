@@ -235,7 +235,7 @@ Start the nginx container via the `docker-compose up -d` command, giving permiss
 
 The last step now is to set up the container for the database
 
-01. Update the _docker-compose.yml_ with this:
+1. Update the _docker-compose.yml_ with this:
    ```sh
     version: "3.9"
     services:
@@ -267,35 +267,35 @@ The last step now is to set up the container for the database
     volumes:
         mysql-data:
    ```
-02. Then launch the containers:
+2. Then launch the containers:
     ```sh
     sudo docker-compose up -d
     ```
-03. Create the CLI inside MariaDB:
+3. Create the CLI inside MariaDB:
    ```sh
    sudo docker exec -it docker-project-db-1 /bin/sh
    ```
-04. Access MariaDB as the root user:
+4. Access MariaDB as the root user:
    ```sh
    mariadb -u root -pmariadb
    ```
-05. Create a user for the db:
+5. Create a user for the db:
    ```sh
    CREATE USER 'nicolo'@'%' IDENTIFIED BY "mezza";
    ```
-06. Grant him privileges:
+6. Grant him privileges:
    ```sh
    GRANT ALL PRIVILEGES ON *.* TO 'nicolo'@'%';
    ```
-07. Reload the privilege tables in the active memory:
+7. Reload the privilege tables in the active memory:
    ```sh
    FLUSH PRIVILEGES;
    ```
-08. To create a new db first repeat steps 3 and 4, then:
+8. To create a new db first repeat steps 3 and 4, then:
    ```sh
    CREATE DATABASE site;
    ```
-09. Use database _site_:
+9. Use database _site_:
    ```sh
    USE site;
    ```
