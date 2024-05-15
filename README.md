@@ -278,7 +278,6 @@ After doing this correctly, follow the steps below.
 The last step now is to set up the container for the database.
 
 1. Update the `docker-compose.yml` with this:
-   
    ```sh
     version: "3.9"
      services:
