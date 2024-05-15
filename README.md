@@ -106,7 +106,7 @@ After doing this correctly, follow the steps below.
    ```
   
 ###SSL certificate
-<div style="text-align:center; margin-bottom:20px;">
+<div style="text-align:center; margin-bottom:200px;">
   <img src="asset/img/ssl.png" alt="Example" style="width:100%;">
 </div>
 
