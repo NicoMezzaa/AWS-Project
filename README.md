@@ -301,7 +301,7 @@ The last step now is to set up the container for the database
    ```
 10. You should now have this:
    ```sh
-   MariaDB [site]> 
+   ss 
    ```
 11. You can now run SQL commands:
    ```sh
