@@ -301,11 +301,11 @@ The last step now is to set up the container for the database
    ```
 10. Result:
     ```sh
-    MariaDB [site] 
+    MariaDB [site]>
     ```
 11. Run SQL commands:
     ```sh
-    sudo docker ps
+    CREATE TABLE users (username VARCHAR(30) NOT NULL, password VARCHAR(32) NOT NULL);
     ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
