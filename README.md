@@ -80,10 +80,11 @@ Then create the project folder:
 * ```bash
    cd ~/docker-project
    ```
-
+  
+After doing this correctly, follow the steps below.
 
 > [!NOTE]
-> You can of course call it whatever you want.
+> You can of course call the project folder whatever you want.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -101,8 +102,7 @@ Then create the project folder:
   ```bash
    sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout key.pem -out cert.pem
    ```
-  
-  ![Example](asset/img/ssl.png)
+![Example](asset/img/ssl.png)
 
 ### Nginx configuration
 + Open the file `docker-compose.yml`:
