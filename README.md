@@ -286,21 +286,24 @@ The last step now is to set up the container for the database
 6. Grant him privileges:
    ```sh
    GRANT ALL PRIVILEGES ON *.* TO 'nicolo'@'%';
+   ```
+7. Reload the privilege tables in the active memory:
+   ```sh
    FLUSH PRIVILEGES;
    ```
-7. To create a new db first repeat steps 3 and 4, then:
+8. To create a new db first repeat steps 3 and 4, then:
    ```sh
    CREATE DATABASE site;
    ```
-8. Use database _site_:
+9. Use database _site_:
    ```sh
    USE site;
    ```
-9. You should now have this as a result:
+10. You should now have this as a result:
    ```sh
    MariaDB [site]> 
    ```
-10. You can now run SQL commands to create tables:
+11. You can now run SQL commands to create tables:
    ```sh
    CREATE TABLE users (username VARCHAR(30) NOT NULL, password VARCHAR(32) NOT NULL);
    ```
