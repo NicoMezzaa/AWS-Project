@@ -299,11 +299,11 @@ The last step now is to set up the container for the database
    ```sh
    USE site;
    ```
-10. You should now have this as a result:
+10. You should now have this:
    ```sh
    MariaDB [site]> 
    ```
-11. You can now run SQL commands to create tables:
+11. You can now run SQL commands:
    ```sh
    CREATE TABLE users (username VARCHAR(30) NOT NULL, password VARCHAR(32) NOT NULL);
    ```
