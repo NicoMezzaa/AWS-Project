@@ -246,6 +246,7 @@ After doing this correctly, follow the steps below.
         volumes:
           - ./php_code/:/var/www/html/
     ```
+    
 6. Then launch the containers:
     ```sh
     sudo docker-compose up -d
