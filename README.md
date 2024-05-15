@@ -56,13 +56,21 @@ Follow the following commands:
    ```bash
    sudo systemctl enable docker
    ```
-4. Install docker-compose:
+4. Check the version of docker:
+   ```bash
+   docker --version
+   ```
+5. Install docker-compose:
    ```bash
    sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
    ```
-5. Add the chmod command to grant execute permissions:
+6. Add the chmod command to grant execute permissions:
    ```bash
    sudo chmod +x /usr/local/bin/docker-compose
+   ```
+7. Check the version of docker-compose:
+   ```bash
+   docker-compose --version
    ```
 
 Then create the project folder:
@@ -73,7 +81,8 @@ Then create the project folder:
    cd ~/docker-project
    ```
 
-You can of course call it whatever you want.
+> [!NOTE]
+> You can of course call it whatever you want.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -81,44 +90,117 @@ You can of course call it whatever you want.
 <!-- NGINX SSL -->
 ## Add Nginx and SSL
 
-After creating the folder, we create the docker-compose.yml file inside, which will be used to initially launch the nginx container.
-
-
-* Create the file:
-  ```bash
-   sudo nano docker-compose.yml
-   ```
-* Copy the code and put it in:
-  ```bash
-   version: "3.9"
-   services:
-        nginx:
-          image: nginx:latest
-          container_name: nginx-container
-          ports:
-           - 80:80
-   ```
-  
-Start the nginx container via the `docker-compose up -d` command, giving permissions with sudo.
+### SSL certificate
 
 * Create the certificate in the ssl folder with the command:
   ```bash
-   mkdir ~/ssl 
+   mkdir ssl/ 
    ```
 * Generate self-signed SSL certificate and key (you will be asked some information for the certificate):
   ```bash
-   sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ~/ssl/key.pem -out ~/ssl/cert.pem
-   ```
-* To connect it to the nginx container:
-  ```bash
-   sudo docker run -d --name proxyapp --network docker-project_default -p 443:443 -e DOMAIN=*.compute-1.amazonaws.com -e TARGET_PORT=80 -e TARGET_HOST=docker-project-nginx-1 -e SSL_PORT=443 -v ~/ssl:/etc/nginx/certs --restart unless-stopped fsouza/docker-ssl-proxy
+   sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout key.pem -out cert.pem
    ```
   
+  ![Example](asset/img/ssl.png)
+
+### Nginx configuration
++ Open the file `docker-compose.yml`:
+  ```bash
+   sudo nano docker-compose.yml
+   ```
++ Copy the code and put it in:
+  ```bash
+   version: "3.9"
+    services:
+      nginx:
+        image: nginx:latest
+        container_name: nginx-container
+        ports:
+          - 80:80
+          - 443:443
+        volumes:
+          - ./ssl:/etc/nginx/certs
+          - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+          - ./php_code/:/var/www/html/
+
+   ```
++ Create the folder nginx:
+  ```bash
+   mkdir ~/docker-project/nginx
+   ```
++ Open the file _default.conf_:
+  ```bash
+   sudo nano ~/docker-project/nginx/default.conf
+   ```
++ Add the following lines there:
+  ```bash
+   server {
+        listen 80 default_server;
+        return 301 https://$host$request_uri;
+   }
+    
+   server {
+        listen 443 ssl default_server;
+        include /etc/nginx/mime.types;
+        root /var/www/html;
+        index index.html index.php;
+    
+        charset utf-8;
+    
+        ssl_certificate /etc/nginx/certs/cert.pem;
+        ssl_certificate_key /etc/nginx/certs/key.pem;
+    
+        location / {
+            try_files $uri $uri/ /index.php?$query_string;
+        }
+    
+        location ~ \.css {
+          add_header  Content-Type    text/css;
+        }
+        location ~ \.js {
+          add_header  Content-Type    application/x-javascript;
+        }
+    
+        location = /favicon.ico { access_log off; log_not_found off; }
+        location = /robots.txt { access_log off; log_not_found off; }
+    
+        access_log off;
+        error_log /var/log/nginx/error.log error;
+    
+        sendfile off;
+    
+        location ~ \.php$ {
+            fastcgi_split_path_info ^(.+\.php)(/.+)$;
+            fastcgi_pass php:9000;
+            fastcgi_index index.php;
+            include fastcgi_params;
+            fastcgi_read_timeout 300;
+            fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+            fastcgi_intercept_errors off;
+            fastcgi_buffer_size 16k;
+            fastcgi_buffers 4 16k;
+        }
+    
+        location ~ /\.ht {
+            deny all;
+        }
+    }
+   ```
++ Create a _Dockerfile_ inside the nginx directory to copy the Nginx default config file:
+  ```bash
+   sudo nano ~/docker-project/nginx/Dockerfile 
+   ```
++ Add the following lines to the Dockerfile:
+  ```bash
+   FROM nginx
+   COPY ./default.conf /etc/nginx/conf.d/default.conf
+   ```
+   
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 <!-- PHP -->
-### Configure PHP 
+## Configure PHP 
 
 1. Create PHP folder (the repo is saved here):
    ```bash
@@ -134,90 +216,39 @@ Start the nginx container via the `docker-compose up -d` command, giving permiss
     RUN docker-php-ext-install mysqli pdo pdo_mysql
     RUN docker-php-ext-enable mysqli
     ```
-4. Create a directory for Nginx inside your project directory:
-    ```sh
-    mkdir ~/docker-project/nginx
-    ```
-5. Create an Nginx default configuration file to run your PHP application:
-    ```sh
-    sudo nano ~/docker-project/nginx/default.conf
-    ```
-6. Add the following Nginx configuration to the _default.conf_ file:
-    ```sh
-    server {  
-
-     listen 80 default_server;  
-     root /var/www/html;  
-     index index.html index.php;  
-
-     charset utf-8;  
-
-     location / {  
-      try_files $uri $uri/ /index.php?$query_string;  
-     }  
-
-     location = /favicon.ico { access_log off; log_not_found off; }  
-     location = /robots.txt { access_log off; log_not_found off; }  
-
-     access_log off;  
-     error_log /var/log/nginx/error.log error;  
-
-     sendfile off;  
-
-     client_max_body_size 100m;  
-
-     location ~ .php$ {  
-      fastcgi_split_path_info ^(.+.php)(/.+)$;  
-      fastcgi_pass php:9000;  
-      fastcgi_index index.php;  
-      include fastcgi_params;
-      fastcgi_read_timeout 300;
-      fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;  
-      fastcgi_intercept_errors off;  
-      fastcgi_buffer_size 16k;  
-      fastcgi_buffers 4 16k;  
-    }  
-
-     location ~ /.ht {  
-      deny all;  
-     }  
-    }
-    ```
-7. Create a Dockerfile inside the nginx directory to copy the Nginx default config file:
-    ```sh
-    sudo nano ~/docker-project/nginx/Dockerfile
-    ```
-8. Add the following lines to the Dockerfile:
-    ```sh
-    FROM nginx
-    COPY ./default.conf /etc/nginx/conf.d/default.conf
-    ```
-9. Update the _docker-compose.yml_ file with the following contents:
+4. Update the `docker-compose.yml` file with the following contents:
     ```sh
     version: "3.9"
-    services:
-       nginx:
-         build: ./nginx/
-         ports:
-           - 80:80
-      
-         volumes:
-             - ./php_code/:/var/www/html/
+     services:
+      nginx:
+        image: nginx:latest
+        container_name: nginx-container
+        ports:
+          - 80:80
+          - 443:443
+        volumes:
+          - ./ssl:/etc/nginx/certs
+          - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+          - ./php_code/:/var/www/html/
     
-       php:
-         build: ./php_code/
-         expose:
-           - 9000
-         volumes:
-            - ./php_code/:/var/www/html/
+      php:
+        build: ./php_code/
+        expose:
+          - 9000
+        volumes:
+          - ./php_code/:/var/www/html/
     ```
-10. Then launch the containers:
+5. Then launch the containers:
     ```sh
     sudo docker-compose up -d
     ```
-11. See the containers:
+6. See the containers:
     ```sh
     sudo docker ps
+    ```
+7. To see logs of nginx::
+    ```sh
+    docker-compose logs nginx
     ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -225,47 +256,48 @@ Start the nginx container via the `docker-compose up -d` command, giving permiss
 
 <!-- CONTAINER -->
 ## Container
-![Containers](asset/img/containers.png)
+![Containers: Nginx & PHP](asset/img/nginx-php.png)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 <!-- MARIADB -->
-### Last step: configure MariaDB
+## Last step: configure MariaDB
 
 The last step now is to set up the container for the database.
 
-1. Update the _docker-compose.yml_ with this:
+1. Update the `docker-compose.yml` with this:
    ```sh
     version: "3.9"
-    services:
-       nginx:
-         build: ./nginx/
-         ports:
-           - 80:80
-      
-         volumes:
-             - ./php_code/:/var/www/html/
+     services:
+      nginx:
+        image: nginx:latest
+        container_name: nginx-container
+        ports:
+          - 80:80
+          - 443:443
+        volumes:
+          - ./ssl:/etc/nginx/certs
+          - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+          - ./php_code/:/var/www/html/
     
-       php:
-         build: ./php_code/
-         expose:
-           - 9000
-         volumes:
-            - ./php_code/:/var/www/html/
+      php:
+        build: ./php_code/
+        expose:
+          - 9000
+        volumes:
+          - ./php_code/:/var/www/html/
     
-    
-       db:    
-          image: mariadb  
-          volumes: 
-            -    mysql-data:/var/lib/mysql
-          environment:  
-           MYSQL_ROOT_PASSWORD: mariadb
-           MYSQL_DATABASE: AWS
-    
+      db:
+        image: mariadb
+        volumes:
+          - mysql-data:/var/lib/mysql
+        environment:
+          MYSQL_ROOT_PASSWORD: mariadb
+          MYSQL_DATABASE: AWS
     
     volumes:
-        mysql-data:
+      mysql-data:
    ```
 2. Then launch the containers:
     ```sh
@@ -314,13 +346,17 @@ The last step now is to set up the container for the database.
 <!-- GIT PULL -->
 ## How to update the repo on AWS
 
-1. Move to the folder where the repo is located:
-    ```sh
-    cd docker-project/php_code/
+> [!IMPORTANT]
+> Move to the folder where the repo is located:
+>  ```sh
+>   cd docker-project/php_code/
+>   ```
+   
+- Do the `git pull`:
     ```
-2. Do the _git pull_:
-    ```sh
-    git pull
+    git status
+    git add
+    git commit
     ```
 Now, after setting everything up, check if it works and now you can focus on developing the site on AWS using the main development techniques:
 
@@ -344,7 +380,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## Contact
 
 Nicolò Mezzanzanica - [<img src="https://img.icons8.com/fluency/48/000000/instagram-new.png" alt="Instagram" width="20"/>](https://instagram.com/nicomezzaa) - nico.mezza7@gmail.com
-
 Project Link (GitHub):    [<img src="https://img.icons8.com/fluency/48/000000/github.png" alt="GitHub" width="20"/>](https://github.com/NicoMezzaa/AWS-Project)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
