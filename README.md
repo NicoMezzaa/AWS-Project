@@ -40,7 +40,7 @@
 <!-- START -->
 ## Initial configuration
 
-You need to install both _**<span style="color:blue;">docker</span>**_ and _**<span style="color:blue;">docker-compose</span>**_.
+You need to install both <span style="color:blue;">docker</span> and <span style="color:blue;">docker-compose</span>.
 This is a <span style="color:blue;">blue</span> word.
 
 Follow the following commands:
