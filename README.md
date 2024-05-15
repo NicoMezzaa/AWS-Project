@@ -225,7 +225,7 @@ Start the nginx container via the `docker-compose up -d` command, giving permiss
 
 <!-- CONTAINER -->
 ## Container
-![Containers](asset/img/project_containers.png)
+![Containers](asset/img/containers.png)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
