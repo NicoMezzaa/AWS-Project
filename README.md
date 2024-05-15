@@ -82,12 +82,10 @@ Then create the project folder:
    ```
   
 
-  
 After doing this correctly, follow the steps below.
 
 
 > [!NOTE]
-> 
 > You can of course call the project folder whatever you want.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -102,7 +100,7 @@ After doing this correctly, follow the steps below.
   ```bash
    mkdir ssl/ 
    ```
-* Generate self-signed SSL certificate and key (you will be asked some information for the certificate):
+* Generate _**self-signed SSL certificate**_ and key (you will be asked some information for the certificate):
   ```bash
    sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout key.pem -out cert.pem
    ```
@@ -340,7 +338,7 @@ The last step now is to set up the container for the database.
     ```sh
     MariaDB [site]>
     ```
-11. Run SQL commands:
+11. Run **SQL** commands:
     ```sh
     CREATE TABLE users (username VARCHAR(30) NOT NULL, password VARCHAR(32) NOT NULL);
     ```
