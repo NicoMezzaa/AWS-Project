@@ -105,9 +105,9 @@ After doing this correctly, follow the steps below.
    sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout key.pem -out cert.pem
    ```
   
-<p align="center">
-  <img src="asset/img/ssl.png" alt="Example">
-</p>
+<div style="text-align:center;">
+  <img src="asset/img/ssl.png" alt="Example" style="width:100%;">
+</div>
 
 
 ### Nginx configuration
@@ -253,7 +253,7 @@ After doing this correctly, follow the steps below.
     ```sh
     sudo docker ps
     ```
-7. To see logs of nginx::
+7. To see logs of nginx:
     ```sh
     docker-compose logs nginx
     ```
