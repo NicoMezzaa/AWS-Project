@@ -80,8 +80,10 @@ Then create the project folder:
 * ```bash
    cd ~/docker-project
    ```
+
   
 After doing this correctly, follow the steps below.
+
 
 > [!NOTE]
 > You can of course call the project folder whatever you want.
