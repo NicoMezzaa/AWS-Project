@@ -185,7 +185,7 @@ Start the nginx container via the `docker-compose up -d` command, giving permiss
     ```
 7. Create a Dockerfile inside the nginx directory to copy the Nginx default config file:
     ```sh
-    nano ~/docker-project/nginx/Dockerfile
+    sudo nano ~/docker-project/nginx/Dockerfile
     ```
 8. Add the following lines to the Dockerfile:
     ```sh
