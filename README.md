@@ -254,9 +254,8 @@ After doing this correctly, follow the steps below.
     sudo docker ps
     ```
 
-> [!TIP]
-> See logs of nginx (if you need it):.
->  ```sh
+> <span style="color:green;">[!TIP]</span> See logs of nginx (if you need it):
+> ```sh
 >   docker-compose logs nginx
 >   ```
 
