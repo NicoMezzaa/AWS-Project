@@ -48,7 +48,7 @@ Follow the following commands:
    ```bash
    sudo apt update
    ```
-2. Install Docker Engine:
+2. Install **Docker Engine**:
    ```bash
    sudo apt install -y docker.io
    ```
@@ -60,7 +60,7 @@ Follow the following commands:
    ```bash
    docker --version
    ```
-5. Install docker-compose:
+5. Install **docker-compose**:
    ```bash
    sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
    ```
@@ -80,10 +80,12 @@ Then create the project folder:
 * ```bash
    cd ~/docker-project
    ```
-
+  
+''''
   
 After doing this correctly, follow the steps below.
 
+''''
 
 > [!NOTE]
 > You can of course call the project folder whatever you want.
