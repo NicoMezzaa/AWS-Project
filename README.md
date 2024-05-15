@@ -105,14 +105,13 @@ After doing this correctly, follow the steps below.
    sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout key.pem -out cert.pem
    ```
   
-####SSL certificate
-<div style="text-align:center;">
+###SSL certificate
+<div style="text-align:center; margin-bottom:20px;">
   <img src="asset/img/ssl.png" alt="Example" style="width:100%;">
 </div>
 
 
 > [!IMPORTANT]
-> 
 > Be sure to provide accurate and appropriate information for each field.
 
 ### Nginx configuration
