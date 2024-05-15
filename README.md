@@ -117,6 +117,7 @@ you created the certificate, now move on to nginx
 
 ### Nginx configuration
 + Open the file `docker-compose.yml`:
+  
   ```bash
    sudo nano docker-compose.yml
    ```
