@@ -384,9 +384,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Nicolò Mezzanzanica - [<img src="https://img.icons8.com/fluency/48/000000/instagram-new.png" alt="Instagram" width="20"/>](https://instagram.com/nicomezzaa) - nico.mezza7@gmail.com
-
-Project Link (GitHub):    [<img src="https://img.icons8.com/fluency/48/000000/github.png" alt="GitHub" width="20"/>](https://github.com/NicoMezzaa/AWS-Project)
+Nicolò Mezzanzanica   -  nico.mezza7@gmail.com
+Link of my Instagram:    [<img src="https://img.icons8.com/fluency/48/000000/instagram-new.png" alt="Instagram" width="20"/>](https://instagram.com/nicomezzaa)  
+Project Link (GitHub):   [<img src="https://img.icons8.com/fluency/48/000000/github.png" alt="GitHub" width="20"/>](https://github.com/NicoMezzaa/AWS-Project)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
