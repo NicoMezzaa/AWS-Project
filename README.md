@@ -360,6 +360,7 @@ The last step now is to set up the container for the database.
 >   ```
    
 - Do the `git pull`:
+  
     ```
     git pull
     ```
