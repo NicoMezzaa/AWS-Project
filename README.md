@@ -301,7 +301,7 @@ The last step now is to set up the container for the database
    ```
 10. Result:
     ```sh
-    sudo docker-compose up -d
+    MariaDB [site] 
     ```
 11. Run SQL commands:
     ```sh
