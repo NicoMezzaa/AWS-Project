@@ -197,7 +197,7 @@ After doing this correctly, follow the steps below.
   ```bash
    sudo nano ~/docker-project/nginx/Dockerfile 
    ```
-+ Add the following lines to the Dockerfile:
++ Add the following lines to the _Dockerfile_:
   ```bash
    FROM nginx
    COPY ./default.conf /etc/nginx/conf.d/default.conf
