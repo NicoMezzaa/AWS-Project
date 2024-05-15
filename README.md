@@ -112,9 +112,6 @@ _**SSL CERTIFICATE EXAMPLE**_
 
 you created the certificate, now move on to nginx
 
-<div style="text-align:center; border-bottom:1px solid #000;"></div>
-
-
 > [!IMPORTANT]
 > Be sure to provide accurate and appropriate information for each field.
 
