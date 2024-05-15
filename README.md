@@ -110,12 +110,9 @@ _**SSL CERTIFICATE EXAMPLE**_
   <img src="asset/img/ssl.png" alt="Example" style="width:100%;">
 </div>
 
+you created the certificate, now move on to nginx
+
 <div style="text-align:center; border-bottom:1px solid #000;"></div>
-
-
-
-
-
 
 
 > [!IMPORTANT]
