@@ -284,7 +284,8 @@ you created the certificate, now move on to nginx
 The last step now is to set up the container for the database.
 
 1. Update the `docker-compose.yml` with this:
-   ```sh
+
+    ```sh
     version: "3.9"
      services:
       nginx:
@@ -316,43 +317,43 @@ The last step now is to set up the container for the database.
     volumes:
       mysql-data:
    ```
-2. Then launch the containers:
+3. Then launch the containers:
     ```sh
     sudo docker-compose up -d
     ```
-3. Create the CLI inside MariaDB:
+4. Create the CLI inside MariaDB:
    ```sh
    sudo docker exec -it docker-project-db-1 /bin/sh
    ```
-4. Access MariaDB as the root user:
+5. Access MariaDB as the root user:
    ```sh
    mariadb -u root -pmariadb
    ```
-5. Create a user for the db:
+6. Create a user for the db:
    ```sh
    CREATE USER 'nicolo'@'%' IDENTIFIED BY "mezza";
    ```
-6. Grant him privileges:
+7. Grant him privileges:
    ```sh
    GRANT ALL PRIVILEGES ON *.* TO 'nicolo'@'%';
    ```
-7. Reload the privilege tables in the active memory:
+8. Reload the privilege tables in the active memory:
    ```sh
    FLUSH PRIVILEGES;
    ```
-8. To create a new db first repeat steps 3 and 4, then:
+9. To create a new db first repeat steps 3 and 4, then:
    ```sh
    CREATE DATABASE site;
    ```
-9. Use database _site_:
+10. Use database _site_:
    ```sh
    USE site;
    ```
-10. Result:
+11. Result:
     ```sh
     MariaDB [site]>
     ```
-11. Run **SQL** commands:
+12. Run **SQL** commands:
     ```sh
     CREATE TABLE users (username VARCHAR(30) NOT NULL, password VARCHAR(32) NOT NULL);
     ```
