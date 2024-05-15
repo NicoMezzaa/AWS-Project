@@ -281,7 +281,7 @@ The last step now is to set up the container for the database
    ```
 5. Create a user for the db:
    ```sh
-   CREATE USER 'username'@'%' IDENTIFIED BY "password";
+   CREATE USER 'nicolo'@'%' IDENTIFIED BY "mezza";
    ```
 6. Grant him privileges:
    ```sh
