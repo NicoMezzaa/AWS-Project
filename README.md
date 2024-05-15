@@ -84,11 +84,11 @@ You can of course call it whatever you want.
 After creating the folder, we create the docker-compose.yml file inside, which will be used to initially launch the nginx container.
 
 
-* Create the file
+* Create the file:
   ```bash
    sudo nano docker-compose.yml
    ```
-* Copy the code and put it in
+* Copy the code and put it in:
   ```bash
    version: "3.9"
    services:
@@ -138,7 +138,7 @@ Start the nginx container via the `docker-compose up -d` command, giving permiss
     ```sh
     mkdir ~/docker-project/nginx
     ```
-5. Create an Nginx default configuration file to run your PHP application
+5. Create an Nginx default configuration file to run your PHP application:
     ```sh
     sudo nano ~/docker-project/nginx/default.conf
     ```
@@ -233,7 +233,7 @@ Start the nginx container via the `docker-compose up -d` command, giving permiss
 <!-- MARIADB -->
 ### Last step: configure MariaDB
 
-The last step now is to set up the container for the database
+The last step now is to set up the container for the database.
 
 1. Update the _docker-compose.yml_ with this:
    ```sh
@@ -324,10 +324,10 @@ The last step now is to set up the container for the database
     ```
 Now, after setting everything up, check if it works and now you can focus on developing the site on AWS using the main development techniques:
 
-* [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
-* [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
-* [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-* [Bootstrap](https://getbootstrap.com/)
+* [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) 🌐
+* [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) 🎨
+* [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) 💻
+* [Bootstrap](https://getbootstrap.com/) 🅱️
  
 <p align="right">(<a href="#top">back to top</a>)</p>
 
