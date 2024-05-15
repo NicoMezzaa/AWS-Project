@@ -81,6 +81,7 @@ Then create the project folder:
    cd ~/docker-project
    ```
 
+
 > [!NOTE]
 > You can of course call it whatever you want.
 
