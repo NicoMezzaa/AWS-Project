@@ -65,7 +65,7 @@ Follow the following commands:
    sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
    ```
 6. Add the chmod command to grant execute permissions:
-   ```bash
+   ```sh
    sudo chmod +x /usr/local/bin/docker-compose
    ```
 7. Check the version of docker-compose:
