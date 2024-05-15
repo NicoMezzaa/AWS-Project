@@ -253,10 +253,12 @@ After doing this correctly, follow the steps below.
     ```sh
     sudo docker ps
     ```
-7. To see logs of nginx:
-    ```sh
-    docker-compose logs nginx
-    ```
+
+> [!TIP]
+> See logs of nginx (if you need it):.
+>  ```sh
+>   docker-compose logs nginx
+>   ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
