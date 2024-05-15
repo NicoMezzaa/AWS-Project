@@ -7,29 +7,6 @@
     <title>Splash Screen</title>
     <link rel="stylesheet" href="/asset/css/style_index.css">
     <link rel="icon" href="/asset/img/aws_logo.png" type="image/x-icon">
-    <style>
-        body {
-	background-color: #f0f5ff;
-	height: 100vh; 
-}
-
-.center-image {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: auto;
-    height: auto;
-    max-width: 80%;
-    max-height: 80%;
-    animation: fade 3s ease-in-out forwards;
-}
-
-@keyframes fade { 
-	from { opacity: 0; } 
-	to { opacity: 1; } 
-}
-    </style>
 </head>
 
 <body>
