@@ -104,7 +104,11 @@ After doing this correctly, follow the steps below.
   ```bash
    sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout key.pem -out cert.pem
    ```
-![Example](asset/img/ssl.png)
+  
+<p align="center">
+  <img src="asset/img/ssl.png" alt="Example">
+</p>
+
 
 ### Nginx configuration
 + Open the file `docker-compose.yml`:
